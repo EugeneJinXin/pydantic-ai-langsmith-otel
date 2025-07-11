@@ -15,7 +15,7 @@ processors:
 
 exporters:
   otlphttp/langsmith:
-    endpoint: 'https://api.smith.langchain.com/otel'
+    endpoint: 'https://api.smith.langchain.com:443/otel'
     headers:
       'x-api-key': '${env:LANGSMITH_API_KEY}'
       'Langsmith-Project': '${env:LANGSMITH_PROJECT}'

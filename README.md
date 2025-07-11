@@ -26,14 +26,21 @@ cp .env.example .env
 python main.py
 ```
 
-## Using with OTEL Collector
+## Using with Local OTEL Collector
 
-1. Start the collector:
+This project includes a local OpenTelemetry collector that receives traces and forwards them to LangSmith.
+
+1. Start the local OTEL collector:
 ```bash
 docker-compose up -d
 ```
 
-2. Configure your application to send traces to the collector at `localhost:4318`
+2. Run the test script that sends traces to the local collector:
+```bash
+python test_otel.py
+```
+
+The local collector runs on `localhost:4318` (HTTP) and `localhost:4317` (gRPC), and automatically forwards traces to LangSmith using your configured API key.
 
 ## Key Configuration Changes
 
@@ -58,6 +65,7 @@ otlp_exporter = OTLPSpanExporter(
 ## Files
 
 - `main.py` - Example pydantic-ai agent with tracing
+- `test_otel.py` - Test script that sends traces to local OTEL collector
 - `otel_config.py` - OpenTelemetry configuration
 - `otel-collector-config.yaml` - OTEL collector configuration
-- `docker-compose.yml` - Docker setup for OTEL collector
+- `docker-compose.yml` - Docker setup for local OTEL collector
