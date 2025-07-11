@@ -4,9 +4,8 @@ This project demonstrates how to set up pydantic-ai with OpenTelemetry tracing t
 
 ## Architecture
 
-This project demonstrates two ways to send traces to LangSmith:
+This project demonstrates how to send traces to LangSmith in pydantic-ai lib:
 
-1. **Direct integration**: Send traces directly from your application to LangSmith (see `main.py`)
 2. **Via local OTEL collector**: Send traces to a local collector that forwards them to LangSmith (see `test_otel.py`)
 
 ## Setup
