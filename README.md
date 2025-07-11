@@ -2,11 +2,12 @@
 
 This project demonstrates how to set up pydantic-ai with OpenTelemetry tracing that sends data to LangSmith.
 
-## Problem & Solution
+## Architecture
 
-The original configuration had two issues:
-1. **Incorrect endpoint**: Used `https://api.smith.langchain.com:443/otel` instead of `https://api.smith.langchain.com/otel`
-2. **Case-sensitive header**: Used `'Langsmith-Project'` instead of the proper casing
+This project demonstrates two ways to send traces to LangSmith:
+
+1. **Direct integration**: Send traces directly from your application to LangSmith (see `main.py`)
+2. **Via local OTEL collector**: Send traces to a local collector that forwards them to LangSmith (see `test_otel.py`)
 
 ## Setup
 
